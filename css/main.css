@@ -1,0 +1,330 @@
+.top-section {
+  /* background-color: #ddd; */
+}
+.top-bar {
+  /* background-color: #aaa; */
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 38px;
+  padding-right: 38px;
+  position: absolute;
+  /* width: 100%; */
+  left: 0; right: 0;
+  /* -> 스크롤의 너비를 제외한 너비를 적용
+     == 구조 자체가 왼쪽~오른쪽 끝 까지 공간을 차지하고 있음 */
+  transition: 0.6s;
+  z-index: 2;
+}
+.top-bar:hover {
+  background-color: #fff;
+  height: 90px;
+}
+.top-bar > .logo-box {
+  /* background-color: #bbb; */
+  width: 265px;
+}
+.top-bar > .logo-box > .lh1 {
+  /* background-color: orange; */
+  height: 100%;
+}
+.top-bar > .logo-box .lg-bg {
+  /* background-color: pink; */
+  /* display: block; */
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+.top-bar > .logo-box .lg-bg::before {
+  content: "";
+  display: block;
+  /* background-color: red; */
+  /* -- 상대경로 */
+  background-image: url(../img/w-img/logo_white.svg);
+  /* -- 절대경로 */
+  /* background-image: url(/img/w-img/logo_white.svg); */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 145px;
+  height: 34px;
+  transition: 0.6s;
+}
+.top-bar:hover .lg-bg::before {
+  background-image: url(../img/c-img/logo_color.svg);
+}
+.top-bar > .menu-box {
+  /* background-color: #bbb; */
+}
+/* 1차메뉴 */
+.top-bar > .menu-box > ul {
+  /* border: 1px solid red; */
+  display: flex;
+  /* a태그의 높이를 길게 만들기 위한 커스텀
+     - 가장 바깥 부모인 ul의 높이를 menu-box만큼 가져오게 한다
+     ㄴ 자식인 li가 높이가 커질 수 있다 */
+  height: 100%;
+  gap: 8px;
+}
+.top-bar > .menu-box > ul > li {
+  /* border: 1px solid orange; */
+  width: 135px;
+}
+.top-bar:hover>.menu-box>ul>li>a {
+  color: #121212;
+}
+.top-bar > .menu-box > ul > li > a {
+  /* background-color: pink; */
+  /* display: block; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  /* padding-left: 15px;
+  padding-right: 15px; */
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+}
+/* 2차메뉴 */
+.menu-box .back-bg {
+  background-color: rgba(0, 0, 0, 0.6);
+  /* width: 100%; */
+  position: absolute;
+  left: 0; right: 0;
+  /* height: calc(100vh - 100px); */
+  height: 0;
+  transition: 0.6s;
+}
+.menu2 {
+  /* height: 350px; */
+  height: 0;
+  background-color: #fff;
+  position: absolute;
+  z-index: 1;
+  left:0; right: 0;
+  overflow: hidden;
+  transition: 0.6s;
+}
+.menu2>.m2-con {
+  /* border: 1px solid red; */
+  width: 850px; height: 350px;
+  margin-left: auto; margin-right: auto;
+  display: flex;
+  gap: 8px;
+}
+.menu2>.m2-con>ul {
+  /* border: 1px solid orange; */
+  flex-grow: 1; flex-basis: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 27px 10px;
+  gap: 7px;
+}
+.menu2>.m2-con>ul>li>a {
+  /* background-color: pink; */
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  position: relative;
+}
+.menu2>.m2-con>ul>li>a::before,
+.menu2>.m2-con>ul>li>a::after {
+  content: "";
+  display: block;
+  transition: 0.6s;
+  background-color: #9B2234;
+  position: absolute;
+}
+.menu2>.m2-con>ul>li>a::before {
+  width: 4px;
+  height: 4px;
+  border-radius: 10px;
+  left: -2px;
+  top: -2px;
+  opacity: 0;
+}
+.menu2>.m2-con>ul>li>a::after {
+  /* width: 100%; */
+  height: 1px;
+  width: 0;
+}
+.menu2>.m2-con>ul>li:hover a::before {
+  opacity: 1;
+}
+.menu2>.m2-con>ul>li:hover a::after {
+  width: 100%;
+}
+/* 2차메뉴 hover */
+/* --back-bg 나타나게 */
+.menu-box > ul:hover + .back-bg {
+  height: calc(100vh - 90px);
+}
+/* --menu2 나타나게 */
+.menu-box > ul > li:hover > .menu2 {
+  height: 350px;
+}
+
+.top-bar > .top-icon-box {
+  /* background-color: #bbb; */
+  width: 265px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.top-bar .t-short-box {
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  /* height: 46px; */
+  border-radius: 50px;
+  padding: 1px;
+  transition: 0.6s;
+}
+.top-bar:hover .t-short-box {
+  border: 2px solid rgba(9, 113, 206, 0.5);
+}
+
+.top-bar .t-short-btn {
+  /* background-color: orange; */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  /* height: 100%; */
+  border-radius: 50px;
+  transition: 0.6s;
+}
+.top-bar:hover .t-short-btn {
+  border: 1px solid rgba(9, 113, 206, 0.2);
+}
+
+.top-bar .t-short-btn>.t-sb-i {
+  /* background-color: pink; */
+  /* display: block; */
+  /* height: 100%; */
+  /* padding: 상하px 좌우px */
+  padding: 13px 25px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.6s;
+}
+.top-bar:hover .t-sb-i {
+  color: rgb(9, 113, 206);
+}
+
+.top-bar .t-short-btn>.t-sb-i::before,
+.top-bar .t-short-btn>.t-sb-i::after {
+  content: "";
+  display: block;
+  /* background-color: orange; */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transition: 0.6s;
+}
+.top-bar .t-short-btn>.t-sb-i::before {
+  width: 18px;
+  height: 17px;
+  background-image: url(../img/w-img/w-cart.svg);
+}
+.top-bar:hover .t-short-btn>.t-sb-i::before {
+  background-image: url(../img/c-img/c-cart.svg);
+}
+
+.top-bar .t-short-btn>.t-sb-i::after {
+  width: 8px;
+  height: 9px;
+  background-image: url(../img/w-img/w-arrow.svg);
+}
+.top-bar:hover .t-short-btn>.t-sb-i::after {
+  background-image: url(../img/c-img/c-arrow.svg);
+}
+
+.top-bar .t-global-box {
+  /* background-color: green; */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.top-bar .t-global-box>span {
+  /* span태그 커스텀 1단계
+     : 커스텀 용이성을 위한 block으로 커스텀(너비, 높이, 정렬 등) */
+  display: block;
+}
+/* .t-global-box의 자식 중 마지막 자식 찾기 근데 span이어야 하는 */
+.top-bar:hover .t-global-box > span:last-child {
+  color: #121212;
+}
+.top-section .banner-box {
+  background-color: #ddd;
+  height: 100vh;
+  /* 높이값을 viewport height (뷰포트 높이) : 100% 가져가겠다 */
+  position: relative;
+}
+.top-section .banner-box>img {
+  display: block;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.ban-text-box {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  text-align: center;
+  line-height: 1.4;
+}
+
+.all-box {
+  height: 660px;
+  background-color: #ddd;
+  margin-top: 200px;
+  margin-bottom: 200px;
+  position: relative;
+  /* back-bg의 유령의 집(새로운 부모 / 새로운 기준) */
+  display: flex;
+  /* container 정렬을 위한 flex 속성 */
+  align-items: center; justify-content: center;
+}
+.all-box > .back-bg {
+  height: 100%; width: 790px;
+  background-color: #aaa;
+  position: absolute;
+  /* abosolute 요소에 높이 적용
+     -> 부모의 높이가 작아지거나 사라질 수 있음 */
+  left: 0; right: 0;
+  /* 위치속성 사용 하지 않으면 부모의 정렬대로 움직이게 됨
+     ㄴ 왼쪽 상단으로 위치를 고정시켜 놓아야 예제보기와 동일해짐 */
+}
+.all-box > .container {
+  width: 1420px;
+  /* height: 440px; */
+  background-color: #bbb;
+  position: relative;
+  /* margin-left: auto; margin-right: auto; */
+  display: flex;
+  justify-content: space-between;
+}
+.all-box > .container >.ui-box {
+  background-color: red;
+}
+.all-box > .container > .list-all-box {
+  background-color: orange;
+}
+.all-box .list-all-box>ul {
+  display: flex;
+  gap: 20px;
+}
+.all-box .list-all-box .img-list {
+  background-color: #fff;
+  width: 370px; height: 440px;
+  padding-left: 40px; padding-top: 40px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.all-box .list-all-box .img-list>a {
+  background: pink;
+  display: block;
+  height: 100%;
+}
+
+기후변화 속 가뭄, 스마트 지...
+기후변화 속 가뭄, 스마트 지하수 활용 글 하...
+2023-12-06

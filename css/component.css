@@ -1,0 +1,48 @@
+/* 아이콘 이름 */
+/* <span></span> */
+/* .component .클래스 {} */
+
+/* -- top-bar 아이콘 -- */
+/* 언어 아이콘 */
+/* <span class="lang material-symbols-rounded">language</span> */
+/* .component .lang {} */
+.component .lang {
+  font-size: 18px;
+  font-weight: 300;
+  color: #fff;
+  transition: 0.6s;
+}
+.component .top-bar:hover .lang {
+  color: #121212;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
